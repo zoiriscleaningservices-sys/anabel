@@ -3,29 +3,13 @@ const path = require('path');
 const db = require('./seoDb.js');
 
 const TEMPLATE_PATH = path.join(__dirname, 'template.html');
-const DOCS_DIR = path.join(__dirname, 'docs');
+const DOCS_DIR = __dirname;
 
-// Create or clean docs dir
-if (fs.existsSync(DOCS_DIR)) {
-  fs.rmSync(DOCS_DIR, { recursive: true, force: true });
-}
-fs.mkdirSync(DOCS_DIR);
+// We no longer recreate DOCS_DIR because it's our working directory.
+// Instead we just generate files directly here.
 
-// Copy static assets to docs
-console.log('Copying static assets...');
-const copyRecursiveSync = (src, dest) => {
-  if (fs.statSync(src).isDirectory()) {
-    fs.mkdirSync(dest, { recursive: true });
-    fs.readdirSync(src).forEach(childItemName => {
-      copyRecursiveSync(path.join(src, childItemName), path.join(dest, childItemName));
-    });
-  } else {
-    fs.copyFileSync(src, dest);
-  }
-};
-copyRecursiveSync(path.join(__dirname, 'assets'), path.join(DOCS_DIR, 'assets'));
-fs.copyFileSync(path.join(__dirname, 'styles.css'), path.join(DOCS_DIR, 'styles.css'));
-fs.copyFileSync(path.join(__dirname, 'script.js'), path.join(DOCS_DIR, 'script.js'));
+// Copy static assets to docs - skipped because assets are already in the root!
+// console.log('Copying static assets...');
 
 // Read template
 const template = fs.readFileSync(TEMPLATE_PATH, 'utf8');
@@ -70,4 +54,4 @@ for (const loc of db.locations) {
 }
 
 console.log(`Successfully generated SEO pages for ${db.locations.length} locations and ${db.services.length} services.`);
-console.log(`All files are ready in the "/docs" folder for GitHub Pages deployment.`);
+console.log(`All files are ready in the root folder for GitHub Pages deployment.`);
