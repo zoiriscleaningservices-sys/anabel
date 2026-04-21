@@ -502,17 +502,40 @@ h1, h2, h3, .syncopate { font-family: 'Syncopate', sans-serif; text-transform: u
     margin-top: 3rem;
     padding-top: 3rem;
     border-top: 1px solid rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.7);
-    font-size: 1.1rem;
-    font-weight: 600;
+    width: 100%;
     transform: translateY(40px);
     opacity: 0;
     transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.mobile-contact p { margin-bottom: 10px; }
-.mobile-contact i { margin-right: 15px; margin-top: 10px; cursor: pointer; transition: 0.3s; }
-.mobile-contact i:hover { stroke: var(--accent); }
 .mobile-menu-overlay.active .mobile-contact { transform: translateY(0); opacity: 1; transition-delay: 0.7s; }
+
+.btn-mobile-phone-animated {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 1.25rem;
+    border-radius: 100px;
+    background: linear-gradient(135deg, var(--accent) 0%, #a27421 100%);
+    color: #fff !important;
+    text-decoration: none !important;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(210,161,84, 0.3);
+    transition: all 0.3s ease;
+}
+.btn-mobile-phone-animated::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: phoneShine 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes phoneShine { 100% { left: 150%; } }
 
 .scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0.8; }
 
@@ -806,12 +829,12 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
         z-index: 2;
         display: flex;
         flex-direction: column;
-        justify-content: center;  /* vertically center all content */
+        justify-content: flex-start;  /* Stop overlapping nav vertically */
         align-items: center;
         text-align: center;
-        padding: 1rem 5vw 1.5rem;
+        padding: 5rem 5vw 1.5rem;  /* Ensure it has a safe margin from nav */
         gap: 0.6rem;
-        overflow: hidden;
+        overflow: visible;         /* Never clip words horizontally */
     }
     /* photo still fills the full 100svh background */
     .hero-bg-wrapper { position: absolute; inset: 0; }
@@ -832,8 +855,8 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
         object-fit: contain;
         filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12));
     }
-    /* Heading - Fixed to be readable and impactful */
-    .main-heading { font-size: clamp(2.4rem, 11vw, 4rem); line-height: 1.05; }
+    /* Heading - Fixed to prevent mid-word wrapping on 12-letter words */
+    .main-heading { font-size: clamp(1.8rem, 10vw, 3.2rem); line-height: 1.08; }
     /* Gold rule */
     .hero-rule { justify-content: center; margin: 1rem 0; }
     .rule-line { width: 40px; }
