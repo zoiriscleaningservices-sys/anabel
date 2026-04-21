@@ -40,7 +40,7 @@ h1, h2, h3, .syncopate { font-family: 'Syncopate', sans-serif; text-transform: u
 
 /* Navbar - Transparent Dark Glass */
 .navbar {
-    position: fixed; top: 0; width: 100%; z-index: 1000;
+    position: fixed; top: 0; width: 100%; z-index: 2500;
     padding: 1.5rem 0;
     background: rgba(0, 0, 0, 0.15); /* High transparency at the top */
     backdrop-filter: blur(10px);
@@ -256,7 +256,8 @@ h1, h2, h3, .syncopate { font-family: 'Syncopate', sans-serif; text-transform: u
     display: block;
     overflow: visible;
     padding: 0.06em 0;
-    white-space: nowrap;
+    white-space: normal;
+    word-break: break-word;
     text-align: center;
 }
 .hw-dark { color: var(--text-main); }
@@ -857,8 +858,8 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
     .about-text .section-badge { display: block; margin: 0 auto 1.5rem; }
     .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 2rem; }
     .stat-item { flex-direction: column; text-align: center; }
-    .stat-item h4 { font-size: 1.8rem; }
-    .stat-item span { font-size: 1rem; }
+    .stat-item h4 { font-size: 1.8rem; display: inline-block; margin-bottom: 0px;}
+    .stat-item h4 .suffix { font-size: 1rem; }
     .stat-item p { font-size: 0.7rem; }
     .about-images { height: 300px; width: 100%; }
     .blur-circle { display: none; }
@@ -957,12 +958,12 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
     .btn-hero-cta { font-size: 0.9rem; padding: 1rem 1.4rem; }
     .hero-badge-pill span:last-child { display: none; } /* show only dot on tiny screens */
 
-    /* ABOUT STATS — vertical stack */
-    .stats-grid { grid-template-columns: 1fr; gap: 1rem; padding-top: 1.5rem; }
-    .stat-item { display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 1rem; }
-    .stat-item:last-child { border-bottom: none; }
-    .stat-item h4 { font-size: 2rem; margin-bottom: 0; }
-    .stat-item p { font-size: 0.8rem; margin: 0; }
+    /* ABOUT STATS — horizontal side-by-side */
+    .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; padding-top: 1.5rem; }
+    .stat-item { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; border-bottom: none; padding-bottom: 0; gap: 0.25rem; }
+    .stat-item h4 { font-size: 1.6rem; margin-bottom: 0; display: inline-block; white-space: nowrap; }
+    .stat-item h4 .suffix { font-size: 0.9rem; margin-left: 0.1rem; color: var(--accent); white-space: nowrap;}
+    .stat-item p { font-size: 0.55rem; margin: 0; line-height: 1.2; text-align: center; word-wrap: break-word; font-weight: 800;}
 
     /* CONTACT CARDS — single column */
     .contact-grid { grid-template-columns: 1fr; gap: 0.8rem; }
