@@ -26,6 +26,7 @@ function generatePage(location, service, outputPath, relativeDepth) {
   content = content.replace(/\{\{SERVICE_NAME_LOWER\}\}/g, service.name.toLowerCase());
   content = content.replace(/\{\{SERVICE_SLUG\}\}/g, service.slug);
   content = content.replace(/\{\{SERVICE_DESC\}\}/g, service.desc);
+  content = content.replace(/\{\{SERVICE_KEYWORDS\}\}/g, service.keywords || service.name);
   content = content.replace(/\{\{ROOT_PATH\}\}/g, depthPath);
   
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
