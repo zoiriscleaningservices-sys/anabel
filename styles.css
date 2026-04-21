@@ -257,7 +257,6 @@ h1, h2, h3, .syncopate { font-family: 'Syncopate', sans-serif; text-transform: u
     overflow: visible;
     padding: 0.06em 0;
     white-space: normal;
-    word-break: break-word;
     text-align: center;
 }
 .hw-dark { color: var(--text-main); }
@@ -832,7 +831,8 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
         justify-content: flex-start;  /* Stop overlapping nav vertically */
         align-items: center;
         text-align: center;
-        padding: 5rem 5vw 1.5rem;  /* Ensure it has a safe margin from nav */
+        padding: 0rem 5vw 1.5rem;
+        margin-top: 10vh;             /* STRICT spacing to force it below the glass header! */
         gap: 0.6rem;
         overflow: visible;         /* Never clip words horizontally */
     }
@@ -856,7 +856,7 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
         filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12));
     }
     /* Heading - Fixed to prevent mid-word wrapping on 12-letter words */
-    .main-heading { font-size: clamp(1.8rem, 10vw, 3.2rem); line-height: 1.08; }
+    .main-heading { font-size: clamp(2rem, 9vw, 3rem); line-height: 1.1; word-break: break-word; hyphens: auto; }
     /* Gold rule */
     .hero-rule { justify-content: center; margin: 1rem 0; }
     .rule-line { width: 40px; }
