@@ -417,21 +417,21 @@ h1, h2, h3, .syncopate { font-family: 'Syncopate', sans-serif; text-transform: u
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 40px;
-    height: 18px;
+    width: 35px;
+    height: 22px;
     cursor: pointer;
     z-index: 2000;
 }
 .hamburger-line {
+    display: block;
     width: 100%;
     height: 2px;
     background: #ffffff;
-    transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    transform-origin: right center;
+    transition: all 0.4s ease-in-out;
 }
-.menu-toggle.active .hamburger-line:nth-child(1) { transform: rotate(-45deg) scaleX(1.1) translateY(-2px); }
-.menu-toggle.active .hamburger-line:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.menu-toggle.active .hamburger-line:nth-child(3) { transform: rotate(45deg) scaleX(1.1) translateY(2px); }
+.menu-toggle.active .hamburger-line:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+.menu-toggle.active .hamburger-line:nth-child(2) { opacity: 0; }
+.menu-toggle.active .hamburger-line:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
 
 /* Hyper-Animated Mobile Menu Overlay */
 .mobile-menu-overlay {
@@ -831,25 +831,25 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
         object-fit: contain;
         filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12));
     }
-    /* Heading */
-    .main-heading { font-size: 5.6vw; }
+    /* Heading - Fixed to be readable and impactful */
+    .main-heading { font-size: clamp(2.4rem, 11vw, 4rem); line-height: 1.05; }
     /* Gold rule */
-    .hero-rule { justify-content: center; }
+    .hero-rule { justify-content: center; margin: 1rem 0; }
     .rule-line { width: 40px; }
     .rule-short { width: 22px; }
-    .rule-label { font-size: 0.46rem; letter-spacing: 1.5px; }
+    .rule-label { font-size: 0.55rem; letter-spacing: 1.5px; }
     /* Description + CTAs */
-    .hero-foot { gap: 0.7rem; }
-    .hero-desc { font-size: 0.9rem; line-height: 1.6; }
+    .hero-foot { gap: 1rem; }
+    .hero-desc { font-size: 0.95rem; line-height: 1.6; max-width: 95%; margin: 0 auto; }
     .hero-seo-text { font-size: 0.55rem; }
-    .hero-cta-col { flex-direction: column; gap: 0.75rem; width: 100%; }
-    .btn-hero-cta { width: 100%; max-width: 300px; padding: 0.9rem 1.5rem; justify-content: center; }
-    .btn-hero-phone { justify-content: center; }
+    .hero-cta-col { flex-direction: column; gap: 0.75rem; width: 100%; align-items: center; }
+    .btn-hero-cta { width: 100%; max-width: 320px; padding: 1.1rem 1.5rem; justify-content: center; font-size: 0.95rem; }
+    .btn-hero-phone { justify-content: center; font-size: 1rem; }
     .hero-scroll-track { display: none; }
     /* Badge + trust pills */
-    .hero-badge-pill { font-size: 0.58rem; padding: 5px 12px; }
-    .hero-trust-pills { display: flex; gap: 0.4rem; }
-    .trust-pill { font-size: 0.55rem; padding: 4px 9px; }
+    .hero-badge-pill { font-size: 0.65rem; padding: 7px 16px; margin-bottom: 0.5rem; }
+    .hero-trust-pills { display: flex; gap: 0.6rem; margin-top: 0.5rem; }
+    .trust-pill { font-size: 0.6rem; padding: 6px 12px; }
 
     /* ABOUT — centered on mobile */
     .about-section .container { text-align: center; }
@@ -950,14 +950,11 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
     section { padding: 4rem 0; }
     .container { padding: 0 5vw; }
 
-    /* HERO — tiny phone: 5.6vw still safe
-     * Content = 480px - 2×5vw = 432px
-     * 5.6vw at 480px = 26.9px → CLEANING = 8×26.9×1.95 = 419px < 432px ✓
-     */
-    .main-heading { font-size: 5.2vw; }
+    /* HERO — tiny phone layout adjustments */
+    .main-heading { font-size: clamp(2rem, 10vw, 3rem); }
     .hero-desc { font-size: 0.88rem; }
-    .hero-foot { gap: 1.25rem; }
-    .btn-hero-cta { font-size: 0.8rem; padding: 0.85rem 1.4rem; }
+    .hero-foot { gap: 1rem; }
+    .btn-hero-cta { font-size: 0.9rem; padding: 1rem 1.4rem; }
     .hero-badge-pill span:last-child { display: none; } /* show only dot on tiny screens */
 
     /* ABOUT STATS — vertical stack */
@@ -979,9 +976,9 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
     .city-item { font-size: 1rem; padding: 1rem 0; }
 
     /* MOBILE MENU */
-    .mobile-menu-content { gap: 1.2rem; width: 88%; }
-    .mobile-link { font-size: 1.5rem; }
-    .mobile-link span.num { margin-right: 12px; }
+    .mobile-menu-content { gap: 1.5rem; width: 90%; }
+    .mobile-link { font-size: 2.2rem; display: flex; align-items: center; }
+    .mobile-link span.num { margin-right: 15px; font-size: 1rem; opacity: 0.6; }
 
     /* FOOTER */
     .footer-massive-text h1 { font-size: 30vw; }
