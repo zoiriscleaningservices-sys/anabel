@@ -53,7 +53,7 @@ h1, h2, h3, .syncopate { font-family: 'Syncopate', sans-serif; text-transform: u
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 0 4vw; }
-.brand-logo img { height: 40px; transition: 0.3s; }
+.brand-logo img { height: 75px; transition: 0.3s; }
 .nav-links { display: flex; gap: 3rem; }
 .nav-links a { color: #ffffff; text-decoration: none; font-size: 0.85rem; letter-spacing: 2px; font-weight: 500; text-transform: uppercase; }
 .hover-underline { position: relative; }
@@ -635,7 +635,7 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
 .footer-content-wrap { position: relative; z-index: 2; display: flex; flex-direction: column; min-height: 60vh; justify-content: space-between; }
 .footer-top { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4rem; }
 .footer-brand { max-width: 300px; }
-.f-logo { height: 50px; margin-bottom: 1.5rem; }
+.f-logo { height: 85px; margin-bottom: 1.5rem; }
 .footer-brand p { color: rgba(255,255,255,0.85); font-weight: 500; font-size: 1.1rem; line-height: 1.8; }
 .footer-nav { display: flex; gap: 6rem; }
 .nav-col h5 { font-family: 'Syncopate'; font-size: 0.9rem; margin-bottom: 1.5rem; color: var(--accent); font-weight: 800; }
@@ -691,19 +691,20 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
 .lc-form-wrapper {
     width: 100%;
     max-width: 860px;
-    height: 923px;          /* matches data-height exactly */
     margin: 0 auto;
     background: #ffffff;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.07);
     border: 1px solid var(--glass-border);
     overflow: hidden;
+    min-height: 950px; /* fallback */
 }
 .lc-form-wrapper iframe {
     width: 100%;
     height: 100%;
     border: none;
     display: block;
+    min-height: 950px;
 }
 
 /* ===== CONTACT SECTION ===== */
@@ -728,7 +729,7 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
     /* NAV */
     .nav-links, .btn-magnetic.hide-on-mobile { display: none; }
     .menu-toggle { display: flex; }
-    .brand-logo img { height: 34px; }
+    .brand-logo img { height: 55px; }
 
     /* HERO — tablet: trust-row wraps naturally, just tighten spacing */
     .hero-trust-row { gap: 0.4rem; }
@@ -801,7 +802,7 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
         justify-self: center;
     }
     .brand-logo img {
-        height: 44px;   /* bigger than desktop's 40px */
+        height: 65px;   /* bigger than desktop's previous */
         width: auto;
     }
     /* Hamburger — right column */
@@ -935,8 +936,8 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
     .booking-header { text-align: center; }
     .booking-header p { text-align: center; }
     .booking-header .section-title { font-size: clamp(1.6rem, 5vw, 2.2rem); text-align: center; }
-    .lc-form-wrapper { border-radius: 16px; }
-    .lc-form-wrapper iframe { height: 900px; }
+    .lc-form-wrapper { border-radius: 16px; min-height: 1100px; }
+    .lc-form-wrapper iframe { min-height: 1100px; height: auto; }
 
     /* CONTACT CARDS — centered */
     .contact-section .section-header { text-align: center; }
@@ -949,7 +950,7 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
     /* FOOTER — centered on mobile */
     .hyper-footer { padding-top: 5rem; }
     .footer-brand { max-width: 100%; text-align: center; }
-    .f-logo { height: 40px; display: block; margin: 0 auto 1.5rem; }
+    .f-logo { height: 65px; display: block; margin: 0 auto 1.5rem; }
     .footer-brand p { font-size: 0.95rem; }
     .footer-nav { flex-direction: column; gap: 2rem; align-items: center; text-align: center; }
     .nav-col { text-align: center; }
@@ -1006,8 +1007,8 @@ section { padding: 8rem 0; position: relative; z-index: 2; background: var(--bg-
 
     /* FOOTER */
     .footer-massive-text h1 { font-size: 30vw; }
-    .f-logo { height: 32px; }
+    .f-logo { height: 50px; }
 
     /* BOOKING FORM */
-    .lc-form-wrapper iframe { height: 950px; }
+    .lc-form-wrapper iframe { min-height: 1150px; height: auto; }
 }
